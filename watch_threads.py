@@ -86,7 +86,7 @@ def extract_latest_post_code_and_url(html: str):
         print("   HTML 預覽：\n", html[:600])
         return None, None
 
-    code = matches[0]
+    code = matches[1]
     url = f"https://www.threads.net/@{THREADS_USERNAME}/post/{code}"
     print(f"   抓到貼文代碼: {code}")
     print(f"   預設貼文網址: {url}")
