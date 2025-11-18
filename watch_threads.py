@@ -120,7 +120,7 @@ def post_matches_keywords(post_url: str) -> bool:
 def send_to_discord(post_url: str):
     today = datetime.now().strftime("%Y-%m-%d")
     msg = (
-        f"📚 **Threads 今日新書貼文通知｜{today}**\n\n"
+        f"📚 **Threads 新書貼文通知｜{today}**\n\n"
         f"來源帳號：@{THREADS_USERNAME}\n"
         f"貼文連結：{post_url}"
     )
