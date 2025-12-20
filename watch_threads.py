@@ -47,9 +47,9 @@ def save_last_seen(code: str):
         json.dump({"last_code": code}, f, ensure_ascii=False, indent=2)
 
 
-# === Firecrawl 抓 HTML，並加 Retry（1 次） ===
+# === Firecrawl 抓 HTML（Retry 已停用） ===
 def firecrawl_scrape(url: str, attempt: int = 1) -> str | None:
-    """呼叫 Firecrawl。若失敗可再嘗試一次。"""
+    """呼叫 Firecrawl（retry 已註解）。"""
 
     payload = {
         "url": url,
@@ -93,13 +93,13 @@ def firecrawl_scrape(url: str, attempt: int = 1) -> str | None:
     except Exception as e:
         print(f"⚠ Firecrawl 抓取失敗（第 {attempt} 次）：{e}")
 
-        # Retry一次
-        if attempt == 1:
-            print("   → 等 5 秒後再試一次...")
-            time.sleep(5)
-            return firecrawl_scrape(url, attempt=2)
+        # === Retry 已停用（保留程式碼但註解） ===
+        # if attempt == 1:
+        #     print("   → 等 5 秒後再試一次...")
+        #     time.sleep(5)
+        #     return firecrawl_scrape(url, attempt=2)
 
-        print("❌ Firecrawl 多次失敗，放棄這次抓取")
+        print("❌ Firecrawl 失敗，放棄這次抓取")
         return None
 
 
